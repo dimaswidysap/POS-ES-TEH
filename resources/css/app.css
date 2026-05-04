@@ -1,0 +1,37 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source "../**/*.blade.php";
+@source "../**/*.js";
+@source "../**/*.vue";
+
+@theme {
+    /* Default Font Sans */
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+    /* Custom Font: Montserrat */
+    --font-montserrat: 'Montserrat', sans-serif;
+
+    /* custom colors text */
+    --color-font: #202940;
+
+
+    /* Custom Colors: Forest */
+    --color-forest-950: #050f09;
+    --color-forest-900: #0a1f0f;
+    --color-forest-800: #0a2e1a;
+    --color-forest-700: #1a4d2e;
+    --color-forest-600: #2d6a4f;
+    --color-forest-500: #52b788;
+    --color-forest-400: #74c69d;
+    --color-forest-200: #b7e4c7;
+    --color-forest-100: #d8f3dc;
+
+    /* Custom Colors: Tea */
+    --color-tea-600: #d4a017;
+    --color-tea-500: #e8b830;
+    --color-tea-400: #f4c842;
+    --color-tea-300: #f9d86a;
+    --color-tea-100: #fef3c7;
+}

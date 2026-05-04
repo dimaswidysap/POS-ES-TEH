@@ -1,0 +1,172 @@
+/* Light rays */
+.light-ray {
+    position: absolute;
+    top: -10%;
+    width: 2px;
+    height: 130%;
+    background: linear-gradient(to bottom, rgba(244, 200, 66, 0.2) 0%, transparent 100%);
+    transform-origin: top center;
+}
+
+/* Gradient text */
+.text-gradient {
+    background: linear-gradient(135deg, #f4c842 0%, #e8b830 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Animations */
+@keyframes floatY {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-14px);
+    }
+}
+
+@keyframes pulseSoft {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.1;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 0.18;
+    }
+}
+
+@keyframes spinSlow {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spinReverse {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+}
+
+@keyframes fadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes raySwayAnim {
+
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 0.9;
+    }
+}
+
+.animate-float {
+    animation: floatY 4s ease-in-out infinite;
+}
+
+.animate-float-d1 {
+    animation: floatY 4s ease-in-out 0.5s infinite;
+}
+
+.animate-float-d2 {
+    animation: floatY 4s ease-in-out 1.8s infinite;
+}
+
+.animate-float-d3 {
+    animation: floatY 4s ease-in-out 3s infinite;
+}
+
+.animate-spin-slow {
+    animation: spinSlow 20s linear infinite;
+}
+
+.animate-spin-reverse {
+    animation: spinReverse 30s linear infinite;
+}
+
+.animate-blink {
+    animation: blink 2s ease-in-out infinite;
+}
+
+.animate-ray {
+    animation: raySwayAnim 8s ease-in-out infinite;
+}
+
+.bokeh-1 {
+    animation: pulseSoft 6s ease-in-out 0s infinite;
+}
+
+.bokeh-2 {
+    animation: pulseSoft 6s ease-in-out 2s infinite;
+}
+
+.bokeh-3 {
+    animation: pulseSoft 6s ease-in-out 4s infinite;
+}
+
+.fade-up-1 {
+    animation: fadeUp 0.8s ease 0.1s both;
+}
+
+.fade-up-2 {
+    animation: fadeUp 0.8s ease 0.25s both;
+}
+
+.fade-up-3 {
+    animation: fadeUp 0.8s ease 0.4s both;
+}
+
+.fade-up-4 {
+    animation: fadeUp 0.8s ease 0.55s both;
+}
+
+.fade-up-5 {
+    animation: fadeUp 0.8s ease 0.7s both;
+}
+
+.fade-up-img {
+    animation: fadeUp 0.8s ease 0.15s both;
+}
+
+nav {
+    border-bottom: 1px solid rgba(82, 183, 136, 0.2);
+}
