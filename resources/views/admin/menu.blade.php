@@ -7,6 +7,13 @@
 
         <section class="w-full  pt-[5rem]">
             <div class="w-full p-6">
+                {{--  --}}
+                <div class="w-full mb-5">
+                    <a href="{{ route('admin.menu.tambahProduk') }}"
+                        class="inline-flex py-1 font-black px-4 rounded-lg bg-tea-600"><span>Tambah
+                            Produk</span></a>
+                </div>
+                {{--  --}}
                 <div class="overflow-hidden ">
                     <table class="w-full border-collapse text-left text-sm text-gray-500">
                         <thead class="bg-forest-950/90">
@@ -27,12 +34,37 @@
                                     <td class="px-6 py-4 text-font">{{ Str::limit($item->deskripsi, 50) }}</td>
                                     <td class="">
                                         <div class="flex justify-start gap-3">
+                                            <a href="{{ route('admin.menu.detail', $item->id_produk) }}"
+                                                class="inline-flex justify-center cursor-pointer items-center h-8 border border-forest-300 shadow-xl aspect-square bg-tea-600/50 rounded-full">
+                                                <svg class="p-1" xmlns="http://www.w3.org/2000/svg" width="24"
+                                                    height="24" viewBox="0 0 24 24" fill="none" stroke=" #202940"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    class="lucide lucide-info-icon lucide-info">
+                                                    <circle cx="12" cy="12" r="10" />
+                                                    <path d="M12 16v-4" />
+                                                    <path d="M12 8h.01" />
+                                                </svg>
+                                            </a>
                                             <a
-                                                class="inline-flex h-8 border border-forest-300 shadow-xl aspect-square bg-tea-600/50 rounded-full"></a>
+                                                class="inline-flex  justify-center cursor-pointer items-center h-8 border border-forest-300 shadow-xl aspect-square bg-tea-600/50 rounded-full">
+                                                <svg class="p-1 " xmlns="http://www.w3.org/2000/svg" width="24"
+                                                    height="24" viewBox="0 0 24 24" fill="none" stroke=" #202940"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    class="lucide lucide-pencil-icon lucide-pencil">
+                                                    <path
+                                                        d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" />
+                                                    <path d="m15 5 4 4" />
+                                                </svg></a>
                                             <a
-                                                class="inline-flex h-8 border border-forest-300 shadow-xl aspect-square bg-tea-600/50 rounded-full"></a>
-                                            <a
-                                                class="inline-flex h-8 border border-forest-300 shadow-xl aspect-square bg-tea-600/50 rounded-full"></a>
+                                                class="inline-flex justify-center cursor-pointer items-center h-8 border border-forest-300 shadow-xl aspect-square bg-tea-600/50 rounded-full">
+                                                <svg class="p-1" xmlns="http://www.w3.org/2000/svg" width="24"
+                                                    height="24" viewBox="0 0 24 24" fill="none" stroke="#202940"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    class="lucide lucide-trash-icon lucide-trash">
+                                                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
+                                                    <path d="M3 6h18" />
+                                                    <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                                                </svg></a>
                                             {{-- <a href="{{ route('admin.menu.delete', $item->id) }}"
                                                 class="text-red-600 hover:text-red-900 font-medium"
                                                 onclick="return confirm('Yakin ingin menghapus?')">Delete</a> --}}
