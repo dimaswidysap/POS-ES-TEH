@@ -1,0 +1,26 @@
+body {
+    font-family: 'DM Sans', sans-serif;
+}
+
+/* Scrollbar custom sesuai tema */
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a2e1a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2d6a4f;
+    border-radius: 4px;
+}
+
+/* Transisi untuk produk card */
+.produk-card {
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.produk-card:active {
+    transform: scale(0.96);
+}

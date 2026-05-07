@@ -26,7 +26,7 @@
                         </thead>
                         <tbody class="">
                             @foreach ($produk as $item)
-                                <tr class="">
+                                <tr class="border-b border-forest-950/50">
                                     <td class="px-6 py-4 font-black text-font ">{{ $item->nama_produk }}</td>
                                     <td class="px-6 py-4 text-font font-black">Rp
                                         {{ number_format($item->harga_produk, 0, ',', '.') }}
@@ -45,7 +45,7 @@
                                                     <path d="M12 8h.01" />
                                                 </svg>
                                             </a>
-                                            <a
+                                            <a href="{{ route('admin.menu.editProduk', $item->id_produk) }}"
                                                 class="inline-flex  justify-center cursor-pointer items-center h-8 border border-forest-300 shadow-xl aspect-square bg-tea-600/50 rounded-full">
                                                 <svg class="p-1 " xmlns="http://www.w3.org/2000/svg" width="24"
                                                     height="24" viewBox="0 0 24 24" fill="none" stroke=" #202940"
@@ -55,16 +55,23 @@
                                                         d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" />
                                                     <path d="m15 5 4 4" />
                                                 </svg></a>
-                                            <a
-                                                class="inline-flex justify-center cursor-pointer items-center h-8 border border-forest-300 shadow-xl aspect-square bg-tea-600/50 rounded-full">
-                                                <svg class="p-1" xmlns="http://www.w3.org/2000/svg" width="24"
-                                                    height="24" viewBox="0 0 24 24" fill="none" stroke="#202940"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                    class="lucide lucide-trash-icon lucide-trash">
-                                                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
-                                                    <path d="M3 6h18" />
-                                                    <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
-                                                </svg></a>
+                                            <form method="POST"
+                                                action="{{ route('admin.menu.hapusProduk', $item->id_produk) }}">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" onclick="return confirm('Yakin ingin menghapus?')"
+                                                    class="inline-flex
+                                                    justify-center cursor-pointer items-center h-8 border border-forest-300
+                                                    shadow-xl aspect-square bg-tea-600/50 rounded-full">
+                                                    <svg class="p-1" xmlns="http://www.w3.org/2000/svg" width="24"
+                                                        height="24" viewBox="0 0 24 24" fill="none" stroke="#202940"
+                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                        class="lucide lucide-trash-icon lucide-trash">
+                                                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
+                                                        <path d="M3 6h18" />
+                                                        <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                                                    </svg></button>
+                                            </form>
                                             {{-- <a href="{{ route('admin.menu.delete', $item->id) }}"
                                                 class="text-red-600 hover:text-red-900 font-medium"
                                                 onclick="return confirm('Yakin ingin menghapus?')">Delete</a> --}}

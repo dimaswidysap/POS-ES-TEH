@@ -6,7 +6,8 @@
         <div class="flex gap-4">
             <figure class=" w-[15rem] lg:w-[20rem] aspect-10/16 shadow-xl bg-forest-950/80 rounded-xl p-1">
                 <div class="w-full h-full bg-tea-100 rounded-[9px] overflow-hidden">
-                    <img src="" alt="foto-produk" class="w-full h-full">
+                    <img class="object-cover w-full h-full" src="{{ asset('foto_produk/' . $produk->foto_produk) }}"
+                        alt="foto-produk">
                 </div>
             </figure>
 

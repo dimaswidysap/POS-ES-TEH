@@ -57,19 +57,6 @@ class ProdukSeeder extends Seeder
                 'harga_produk' => 10000,
                 'deskripsi' => 'Es teh dengan rasa stroberi yang manis dan menyegarkan ukuran jumbo.',
             ],
-
-            // Es Teh Pandan
-            [
-                'nama_produk' => 'Es Teh Pandan Reguler',
-                'harga_produk' => 6000,
-                'deskripsi' => 'Es teh dengan aroma pandan wangi ukuran reguler.',
-            ],
-            [
-                'nama_produk' => 'Es Teh Pandan Jumbo',
-                'harga_produk' => 9000,
-                'deskripsi' => 'Es teh dengan aroma pandan wangi ukuran jumbo.',
-            ],
-
             // Es Coklat
             [
                 'nama_produk' => 'Es Coklat Reguler',
