@@ -24,25 +24,18 @@ Route::prefix('admin')->group(function () {
 
     Route::get('/order', [AdminController::class, 'order'])->name('admin.order');
     Route::get('/user', [AdminController::class, 'user'])->name('admin.user');
+
+    //
+    // hapus transaksi
+    Route::get('/hapus-transaksi/{id}', [AdminController::class, 'hapusTransaksi'])->name('hapusTransaksi');
 });
 
 Route::prefix('kasir')->name('kasir.')->group(function () {
-
-    // GET  /kasir          → Halaman utama kasir
     Route::get('/', [KasirController::class, 'index'])->name('index');
-
-    // POST /kasir/cart/tambah  → Tambah produk ke cart
     Route::post('/cart/tambah', [KasirController::class, 'tambahCart'])->name('cart.tambah');
-
-    // POST /kasir/cart/kurangi → Kurangi quantity di cart
     Route::post('/cart/kurangi', [KasirController::class, 'kurangiCart'])->name('cart.kurangi');
-
-    // POST /kasir/cart/hapus   → Hapus item dari cart
     Route::post('/cart/hapus', [KasirController::class, 'hapusCart'])->name('cart.hapus');
-
-    // POST /kasir/cart/clear   → Kosongkan semua cart
     Route::post('/cart/clear', [KasirController::class, 'clearCart'])->name('cart.clear');
-
-    // POST /kasir/proses       → Proses dan simpan transaksi
     Route::post('/proses', [KasirController::class, 'prosesTransaksi'])->name('proses');
+
 });

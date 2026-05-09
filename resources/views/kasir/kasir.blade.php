@@ -14,6 +14,32 @@
 
 </head>
 
+{{-- Letakkan ini tepat sebelum </body> --}}
+<script>
+    /**
+     * Jembatan antara Laravel/Blade dan kasir.js
+     *
+     * Kenapa perlu ini?
+     * File kasir.js diproses oleh Vite sebagai file statis,
+     * jadi tidak bisa langsung membaca variabel PHP.
+     * Solusinya: Blade menulis data ke dalam pemanggilan fungsi initKasir()
+     * yang sudah didefinisikan di kasir.js.
+     */
+    document.addEventListener('DOMContentLoaded', function() {
+        initKasir(
+            @json($cart), // PHP array cart dari session → JS object
+            "{{ csrf_token() }}", // CSRF token Laravel untuk keamanan POST
+            {
+                tambah: "{{ route('kasir.cart.tambah') }}",
+                kurangi: "{{ route('kasir.cart.kurangi') }}",
+                hapus: "{{ route('kasir.cart.hapus') }}",
+                clear: "{{ route('kasir.cart.clear') }}",
+                proses: "{{ route('kasir.proses') }}",
+            }
+        );
+    });
+</script>
+
 {{-- Background utama menggunakan warna forest terdalam --}}
 
 <body class="bg-tea-100 text-forest-100 min-h-screen">
@@ -89,11 +115,11 @@
                             data-nama dipakai untuk fitur pencarian
                             onclick memanggil fungsi dari kasir.js
                         --}}
-                            <div class="produk-card cursor-pointer rounded-xl overflow-hidden
+                            <div class="btn-cart produk-card cursor-pointer rounded-xl overflow-hidden
                                     bg-forest-800/50 border border-forest-700/40
                                     hover:border-forest-500/60 hover:shadow-lg hover:shadow-forest-900/50
                                    select-none"
-                                data-id="{{ $item->id_produk }}" onclick="tambahKeCart('{{ $item->id_produk }}')">
+                                data-id="{{ $item->id_produk }}">
 
                                 {{-- Gambar / Placeholder --}}
                                 @if ($item->foto_produk)
@@ -331,10 +357,6 @@
     <div id="toastContainer"
         class="fixed bottom-5 right-5 z-[9999] flex flex-col gap-2 items-end pointer-events-none">
     </div>
-
-
-
-
 
 </body>
 

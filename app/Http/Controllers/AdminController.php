@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Produk;
+use App\Models\Transaksi;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
@@ -10,9 +12,14 @@ use Illuminate\Support\Str;
 class AdminController extends Controller
 {
     //
-    public function admin()
+    public function admin(Request $request)
     {
-        return view('admin.admin');
+        // ambil data dari request jika tidak ada makan default hari ini
+        $date = $request->get('date', Carbon::today()->toDateString());
+
+        $penghasilanHariIni = Transaksi::whereDate('created_at', $date)->sum('total_harga');
+
+        return view('admin.admin', compact('penghasilanHariIni'));
     }
 
     public function menu()
@@ -139,9 +146,25 @@ class AdminController extends Controller
         return redirect()->route('admin.menu')->with('success', 'Produk berhasil dihapus');
     }
 
-    public function order()
+    public function order(Request $request)
     {
-        return view('admin.order');
+        // Ambil tanggal dari URL, jika tidak ada default ke hari ini
+        $date = $request->get('date', Carbon::today()->toDateString());
+
+        $transaksi = Transaksi::with('details.produk')
+            ->whereDate('created_at', $date)
+            ->get();
+
+        return view('admin.order', compact('transaksi'));
+    }
+
+    public function hapusTransaksi($id)
+    {
+        $transaksi = Transaksi::findOrFail($id);
+
+        $transaksi->delete();
+
+        return redirect()->route('admin.order')->with('success', 'Transaksi berhasil dihapus');
     }
 
     public function user()
